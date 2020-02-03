@@ -23,10 +23,10 @@ const LogIn = () => {
 
     return (
         <div>
-            <form onSubmit ={submitForm}>
+            <form className = "form" onSubmit ={submitForm}>
                 
                 <label htmlFor = "login">LogIn</label>
-                <input
+                <input class ="input"
                 id = "login"
                 type = "text"
                 name ="login"
@@ -37,7 +37,7 @@ const LogIn = () => {
 
 
                 <label htmlFor = "password">Password</label> 
-                <input
+                <input class ="input"
                 id = "password"
                 type ="password"
                 name = "password"

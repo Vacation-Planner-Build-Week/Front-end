@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.form{
+  display:flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 0 auto;
+}
+
+ button{
+   margin:6%;
+   width:50%;
+   margin-left: 27%;
+   padding: 2%;
+   background: #C4C4C4;
+   border-radius: 5px;   
+
+ }
+
+ .input{
+padding: 2%;
+background: #FFFFFF;
+/* Text Colors/Regent Gray */
+
+border: 0.5px solid #8A9BA8;
+border-radius: 6px;
+ }

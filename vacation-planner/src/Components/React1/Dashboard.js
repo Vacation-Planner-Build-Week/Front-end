@@ -8,7 +8,7 @@ const Dashboard = () => {
     return(
 
         <div>
-         <Link to = "/login">LogIn</Link> 
+         <Link to = "/login"></Link> 
         </div>
     )
 }
