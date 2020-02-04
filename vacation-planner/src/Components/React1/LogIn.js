@@ -18,6 +18,62 @@ const LogIn = props => {
   // submitForm
   const submitForm = e => {
     e.preventDefault();
+<<<<<<< HEAD
+    setUser({login:"", password: ""})
+
+    }
+
+    return (
+        <div>
+            <form className = "form" onSubmit ={submitForm}>
+<<<<<<< HEAD
+                
+                {/* <label htmlFor = "login">LogIn</label> */}
+                <label htmlFor = "login"></label>
+=======
+                <label htmlFor = "login">Username</label>
+>>>>>>> 2d41baa95c1d8a3e5df2732508e24e2daa71873a
+                <input class ="input"
+                id = "login"
+                type = "text"
+                name ="login"
+                onChange = {handleChanges}
+                placeholder = "userName"
+                value = {user.user_name}
+                />
+<<<<<<< HEAD
+
+
+                {/* <label htmlFor = "password">Password</label>  */}
+                <label htmlFor = "password"></label> 
+                <input class ="input"
+                id = "password"
+                type ="password"
+                name = "password"
+                onChange = {handleChanges}
+                placeholder = "password"
+                value = {user.user_password} 
+=======
+                <label htmlFor="password">Password</label> 
+                <input class="input"
+                    id="password"
+                    type="password"
+                    name="user_password"
+                    onChange={handleChanges}
+                    placeholder="password"
+                    value={user.user_password} 
+>>>>>>> 2d41baa95c1d8a3e5df2732508e24e2daa71873a
+                />   
+                <button type ="submit">Submit</button>
+               
+            </form>
+
+        </div>
+    )
+}
+
+export default LogIn;
+=======
     console.log("Submitting", user);
     axiosWithAuth()
       .post("https://vacation-planner-2020.herokuapp.com/api/auth/login", user)
@@ -61,3 +117,4 @@ const LogIn = props => {
   );
 };
 export default LogIn;
+>>>>>>> d8f7c7217cd1ec1a9cb184e50885b3329a01cc8c

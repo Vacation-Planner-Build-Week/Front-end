@@ -1,8 +1,10 @@
+
 // Dependencies
 import React, { useEffect } from "react";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
 import "./App.css";
+
 
 // Components
 import LogIn from "./Components/React1/LogIn";
@@ -19,7 +21,10 @@ function App() {
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });
   };
-
+  
+      <Route path = '/Comments'>
+        <CommentForm />
+      </Route>
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
@@ -50,9 +55,6 @@ function App() {
           path="/dashboard/"
           component={props => <Dashboard {...props} />}
         />
-      </Switch>
-    </div>
-  );
 }
 
 export default App;
