@@ -50,14 +50,14 @@ const AddVacation = (props) => {
             <h1>Add Vacation</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    name="name"
+                    name="vacation_name"
                     type="text"
                     value={vacation.vacation_name}
                     onChange={handleChanges}
                     required
                 />
-                <input
-                    name="description"
+                <textarea
+                    name="vacation_description"
                     type="text"
                     value={vacation.vacation_description}
                     onChange={handleChanges}
