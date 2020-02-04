@@ -15,7 +15,6 @@ const Dashboard = () => {
   );
 };
 
-<<<<<<< HEAD
     return(
 
         <div className ="navlink">
@@ -24,9 +23,6 @@ const Dashboard = () => {
            <Link to ="/comments">Comments</Link>
         </div>
     )
-}
+
 
 export default Dashboard;
-=======
-export default Dashboard;
->>>>>>> d8f7c7217cd1ec1a9cb184e50885b3329a01cc8c

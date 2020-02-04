@@ -1,25 +1,10 @@
-<<<<<<< HEAD
-import React from 'react';
-import './App.css';
-import {Route} from 'react-router-dom'
-import LogIn from './Components/React1/LogIn'
-import Dashboard from './Components/React1/Dashboard'
-import CommentForm from './Components/React1/CommentForm'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Vacation Planner</h1>
-      
-      <Route path = '/'>
-       <Dashboard />
-      </Route>
-=======
 // Dependencies
 import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
 import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
 import "./App.css";
+
 
 // Components
 import LogIn from "./Components/React1/LogIn";
@@ -53,7 +38,6 @@ function App() {
         .catch(error => console.log(error));
     }
   }, [userid]);
->>>>>>> d8f7c7217cd1ec1a9cb184e50885b3329a01cc8c
 
   const signOut = () => {
     localStorage.removeItem("token");
@@ -61,16 +45,17 @@ function App() {
     setUserid(0);
   };
 
-<<<<<<< HEAD
+
       <Route path = '/Comments'>
         <CommentForm />
       </Route>
 
-    </div>
-  );
-=======
-  if (!userdata) return null;
-  else if (userdata) {
+  
+
+  if(!userdata) return null
+  else if(userdata){
+
+
     return (
       <div className="App">
         <h1>Vacation Planner</h1>
@@ -138,7 +123,7 @@ function App() {
       </div>
     );
   }
->>>>>>> d8f7c7217cd1ec1a9cb184e50885b3329a01cc8c
+
 }
 
 export default App;
