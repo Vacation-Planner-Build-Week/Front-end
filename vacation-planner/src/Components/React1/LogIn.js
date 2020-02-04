@@ -25,7 +25,8 @@ const LogIn = () => {
         <div>
             <form className = "form" onSubmit ={submitForm}>
                 
-                <label htmlFor = "login">LogIn</label>
+                {/* <label htmlFor = "login">LogIn</label> */}
+                <label htmlFor = "login"></label>
                 <input class ="input"
                 id = "login"
                 type = "text"
@@ -36,7 +37,8 @@ const LogIn = () => {
                 />
 
 
-                <label htmlFor = "password">Password</label> 
+                {/* <label htmlFor = "password">Password</label>  */}
+                <label htmlFor = "password"></label> 
                 <input class ="input"
                 id = "password"
                 type ="password"
