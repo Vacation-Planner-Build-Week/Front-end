@@ -21,7 +21,7 @@ function App() {
     setUserid(localStorage.getItem("userid"));
     if(localStorage.getItem("token")){
       axiosWithAuth()
-      .get(`/users/${userid}/vacation`)
+      .get(`/users/${userid}/vacations`)
       .then(response => {
         console.log("Vacation Data: ", response.data)
         setVacations(response.data);
