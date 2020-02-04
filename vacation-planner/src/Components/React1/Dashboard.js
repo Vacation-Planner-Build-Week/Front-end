@@ -8,7 +8,8 @@ const Dashboard = () => {
     return(
 
         <div>
-         <Link to = "/login"></Link> 
+         {/* <Link to = "/login">Log In</Link>  */}
+         <h1>Dashboard</h1>
         </div>
     )
 }
