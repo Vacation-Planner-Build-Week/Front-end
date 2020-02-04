@@ -55,6 +55,9 @@ function App() {
           path="/dashboard/"
           component={props => <Dashboard {...props} />}
         />
+      </Switch>
+    </div>
+  )
 }
 
 export default App;
