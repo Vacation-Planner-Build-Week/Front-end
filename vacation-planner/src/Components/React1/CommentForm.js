@@ -17,7 +17,7 @@ const [posts, setPosts] = useState([
     {
     id: 1,
     user_name: "Riya Wilson",
-    comment: "Thanks so much to Vacation Planner for helping me plan a great holiday. We went to Maui and Kauai and we knew everthing about the place and activities to enjoy! I must say, Vacation Planner is the best vacation adviser planner :-)"
+    comment_value: "Thanks so much to Vacation Planner for helping me plan a great holiday. We went to Maui and Kauai and we knew everthing about the place and activities to enjoy! I must say, Vacation Planner is the best vacation adviser planner :-)"
     }
 
     ])
@@ -39,9 +39,9 @@ setPost({username:"", comment:""})
 
 const addNewComment = (post) => {
     const newPost = {
-        id: Date.now(),
+        id: post.id,
         username: post.user_name,
-        comment: post.comment        
+        comment: post.comment_value        
     }
     setPosts([...posts, newPost])
   }
@@ -60,25 +60,25 @@ const addNewComment = (post) => {
             name = "username"
             onChange = {handleChanges}
             placeholder = "Name here"
-            value = {post.user_name}
+            value = {post.username}
             />
 
             {/* <label htmlFor = 'comment'>comment</label> */}
             <label htmlFor = 'comment'></label>
             <textarea className = "input"
             id = "comment"            
-            name = "Comment"
+            name = "comment"
             onChange = {handleChanges}
             placeholder = "Type you comment here!"
-            value = {post.comment_value}
+            value = {post.comment}
             />
-            <button className =".commentbutton" type = "submit">Submit</button>
+            <button className ="commentbutton" type = "submit">Submit</button>
         </form>
       
         {posts.map(post =>(
             <Comment key = {post.id}
-            user= {post.user_name}
-            comment= {post.comment} />
+            username= {post.user_name}
+            comment= {post.comment_value} />
 
         ))} 
 
