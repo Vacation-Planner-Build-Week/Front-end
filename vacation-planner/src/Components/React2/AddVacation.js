@@ -57,5 +57,4 @@ const AddVacation = props => {
     </div>
   );
 };
-
 export default AddVacation;
