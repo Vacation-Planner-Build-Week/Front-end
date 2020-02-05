@@ -43,6 +43,7 @@ const LogIn = props => {
           onChange={handleChanges}
           placeholder="userName"
           value={user.user_name}
+          required
         />
         <label htmlFor="password">Password</label>
         <input
@@ -53,6 +54,7 @@ const LogIn = props => {
           onChange={handleChanges}
           placeholder="password"
           value={user.user_password}
+          required
         />
         <button className="button" type="submit">
           Submit

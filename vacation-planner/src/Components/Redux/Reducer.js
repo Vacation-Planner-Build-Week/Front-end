@@ -61,6 +61,13 @@ export const Reducer = (state = InitState, action) => {
         vacations: [...state.vacations, action.payload]
       };
 
+    case "EDIT_Vacation":
+      console.log("EDIT VACA", action.payload);
+      return {
+        ...state,
+        vacations: [...state.vacations, action.payload]
+      }
+
     default:
       return state;
   }

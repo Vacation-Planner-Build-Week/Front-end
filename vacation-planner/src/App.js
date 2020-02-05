@@ -7,6 +7,7 @@ import LogIn from "./Components/React1/LogIn";
 import Register from "./Components/React1/Register";
 import PrivateRoute from "./Components/Utilities/PrivateRoute";
 import AddVacation from "./Components/React2/AddVacation";
+import UpdateVacation from "./Components/React2/UpdateVacation";
 import Dashboard from "./Components/React1/Dashboard";
 import CommentForm from "./Components/React1/CommentForm";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,6 +49,10 @@ function App() {
         <Route
           path="/addvacation"
           component={props => <AddVacation {...props} />}
+        />
+        <Route
+          path="/updatevacation/:id"
+          component={props => <UpdateVacation {...props} />}
         />
         <Route path="/Comments">
           <CommentForm />

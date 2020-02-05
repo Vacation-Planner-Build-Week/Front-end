@@ -14,6 +14,15 @@ const VacationCard = props => {
       .catch(err => console.log(err));
   };
 
+//   const handleEdit = () => {
+//     e.preventDefault();
+//     console.log(e.target.id)
+//     if(e.target.getAttribute('name') === "exercisedata"){
+//       props.history.push(`/updatevacation/${e.target.id}`);
+//     }
+//     else return
+//   }
+
   const handleClick = name => {
     alert(`you clicked on ${name}`);
   };
