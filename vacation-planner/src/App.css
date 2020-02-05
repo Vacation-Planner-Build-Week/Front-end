@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+.btn {
+  width: 10%;
+  margin: 0.3%;
+  margin-left: 0%;
+}
 
 /* .App-logo {
   height: 40vmin;
@@ -37,54 +42,46 @@
   }
 } */
 
-.form{
-  display:flex;
+.form {
+  display: flex;
   flex-direction: column;
   width: 20%;
   margin: 0 auto;
-  
-
+}
+.button {
+  margin: 6%;
+  width: 50%;
+  margin-left: 27%;
+  padding: 2%;
+  background: #c4c4c4;
+  border-radius: 5px;
 }
 
- button{
-   margin:6%;
-   width:50%;
-   margin-left: 27%;
-   padding: 2%;
-   background: #C4C4C4;
-   border-radius: 5px;
-  
- }
- 
+.input {
+  padding: 2%;
+  background: #ffffff;
+  /* Text Colors/Regent Gray */
 
- .input{
-padding: 2%;
-background: #FFFFFF;
-/* Text Colors/Regent Gray */
+  border: 0.5px solid #8a9ba8;
+  border-radius: 6px;
+  margin: 4%;
+}
 
-border: 0.5px solid #8A9BA8;
-border-radius: 6px;
-margin:4%
- }
+.comments {
+  width: 50%;
+  min-height: 30vh;
+  background: #ffffff;
+  border: #8a9ba8 1px solid;
+  border-radius: 8px;
+  margin: 2% auto;
+}
 
- .comments{  
-   
-   width:50%; 
-   min-height:30vh;
-   background: #FFFFFF;
-   border: #8A9BA8 1px solid;
-   border-radius: 8px; 
-   margin: 2% auto;
- }
-
- .navlink{
-   display: flex;
-   justify-content: space-evenly;
-   margin-bottom: 2%;
-   
- }
- .navlink a{
-   text-decoration: none;
-   color: #8A9BA8;
-  
- }
+.navlink {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2%;
+}
+.navlink a {
+  text-decoration: none;
+  color: #8a9ba8;
+}

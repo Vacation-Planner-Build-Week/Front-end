@@ -1,23 +1,16 @@
 import React from "react";
-import VacationCard from '../React2/Vacations';
-import { connect } from "react-redux";
+import VacationCard from "../React2/Vacations";
+import { useSelector } from "react-redux";
 
-const mapStateToProps = state => {
-    console.log("State", state);
-        return {
-            vacation: state.vacation
-        }
-}
-
-const VacationList = props => {
-    console.log(props.vacation);
-    return(
+export const VacationList = () => {
+  const vacations = useSelector(state => state.vacations);
+  return (
+    <div>
+      {vacations.map((ele, index) => (
         <div>
-            {props.vacation.map(vacation => (
-                <VacationCard key={vacation.id} vacation={vacation} />
-            ))}
+          <VacationCard key={index} vacations={ele} />
         </div>
-    )
-}
-
-export default connect (mapStateToProps)(VacationList)
+      ))}
+    </div>
+  );
+};
