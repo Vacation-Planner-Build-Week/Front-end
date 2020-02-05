@@ -21,19 +21,20 @@ const AddVacation = props => {
   const handleSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post(`/users/${user.user_Id}/vacations`, vacation)
+      .post(`/vacations`, vacation)
       .then(response => {
         console.log(response);
-        dispatch({ type: "ADD_Vacation", payload: vacation });
-        props.history.push("/dashboard/");
+        dispatch({ type: "ADD_Vacation", payload: response.data });
+        props.history.push("/dashboard");
         //------------------//
-        axiosWithAuth()
-          .get(`users/${user.user_Id}/vacations`)
-          .then(response => {
-            console.log(response);
-            props.setVacation(response.data);
-          })
-          .catch(error => console.log(error));
+        // axiosWithAuth()
+        //   .get(`users/${user.user_Id}/vacations`)
+        //   .then(response => {
+        //     console.log("GET VAC RES", response);
+        //     dispatch({ type: "GET_VACA", payload: response.data });
+
+        //   })
+        //   .catch(error => console.log(error));
       })
       .catch(error => {
         console.log("Data was not returned addVacation.js", error);

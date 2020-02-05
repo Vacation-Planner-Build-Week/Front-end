@@ -15,9 +15,10 @@ const LogIn = props => {
       [e.target.name]: e.target.value
     });
   };
-  
-    const handleSubmit = e => {
+
+  const handleSubmit = e => {
     console.log("Submitting", user);
+    e.preventDefault();
     axiosWithAuth()
       .post("https://vacation-planner-2020.herokuapp.com/api/auth/login", user)
       .then(response => {
@@ -54,11 +55,11 @@ const LogIn = props => {
           placeholder="password"
           value={user.user_password}
         />
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
 };
 export default LogIn;
-
-
