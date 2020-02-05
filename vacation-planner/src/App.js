@@ -1,18 +1,16 @@
-
 // Dependencies
 import React, { useEffect } from "react";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
-import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
 import "./App.css";
-
-
 // Components
 import LogIn from "./Components/React1/LogIn";
 // import Register from "./Components/React1/Register";
 import PrivateRoute from "./Components/Utilities/PrivateRoute";
 import AddVacation from "./Components/React2/AddVacation";
 import Dashboard from "./Components/React1/Dashboard";
+import CommentForm from "./Components/React1/CommentForm";
 import { useDispatch, useSelector } from "react-redux";
+import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,10 +19,9 @@ function App() {
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });
   };
-  
-      <Route path = '/Comments'>
-        <CommentForm />
-      </Route>
+
+  // https://vacation-planner-2020.herokuapp.com/api/users/3
+
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
@@ -36,7 +33,7 @@ function App() {
             <Link to="/dashboard/">Dashboard</Link>
           )}
           {localStorage.getItem("token") && (
-            <Link to="/addvacation/">Add Vacation</Link>
+            <Link to="/addvacation">Add Vacation</Link>
           )}
           {localStorage.getItem("token") && (
             <Link to="/" onClick={signOut}>
@@ -48,16 +45,19 @@ function App() {
       <Switch>
         <Route exact path="/" render={props => <LogIn {...props} />} />
         <Route
-          path="/addvacation/"
+          path="/addvacation"
           component={props => <AddVacation {...props} />}
         />
+        <Route path="/Comments">
+          <CommentForm />
+        </Route>
         <PrivateRoute
-          path="/dashboard/"
+          path="/dashboard"
           component={props => <Dashboard {...props} />}
         />
       </Switch>
     </div>
-  )
+  );
 }
 
 export default App;
