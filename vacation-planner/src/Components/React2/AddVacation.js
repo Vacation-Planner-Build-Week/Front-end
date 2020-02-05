@@ -50,8 +50,8 @@ const AddVacation = props => {
   };
 
   return (
-    <div>
-      <h1>Add Vacation</h1>
+    <div className ="addVacationCard"> 
+      <h2>Add Vacation</h2>
       <form className ="form" onSubmit={handleSubmit}>
         <input className ='input'
           name="vacation_name"

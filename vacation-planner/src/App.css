@@ -11,7 +11,7 @@
 
 .button{
   margin:6%;
-  width:50%;
+  width:60%;
   margin-left: 27%;
   padding: 2%;
   background: #C4C4C4;
@@ -22,7 +22,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 60%;
   margin: 0 auto;
 }
 /* .button {
@@ -37,8 +37,6 @@
 .input {
   padding: 2%;
   background: #ffffff;
-  /* Text Colors/Regent Gray */
-
   border: 0.5px solid #8a9ba8;
   border-radius: 6px;
   margin: 4%;
@@ -105,6 +103,17 @@ background-image: linear-gradient(rgba(43, 42, 42, 0.2), rgba(43, 42, 32, 0.2)),
   border-radius: 8px;
 }
 
+.addVacationCard{
+
+width: 35%;
+/* margin: 2% 10% 0 10%; */
+margin: 0 auto;
+padding: 2% 3% 3% 2%;
+/* width:100px; */
+border: #00394d 1px solid; 
+border-radius: 8px;
+}
+
 h1{
   color: #002533;
   font-size: 2.3rem;
@@ -112,7 +121,7 @@ h1{
 
 h2{
   color: #004b66;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 
