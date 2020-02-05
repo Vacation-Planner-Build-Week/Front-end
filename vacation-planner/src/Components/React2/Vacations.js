@@ -28,5 +28,3 @@ const VacationCard = props => {
     </div>
   );
 }
-
-export default VacationCard;
