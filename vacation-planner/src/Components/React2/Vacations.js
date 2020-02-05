@@ -18,9 +18,9 @@ const VacationCard = props => {
     alert(`you clicked on ${name}`);
   };
   return (
-    <div>
-      <h1>{props.vacations.vacation_name}</h1>
-      <h2>{props.vacations.vacation_descrition}</h2>
+    <div className= "vacationCard">
+      <h2>{props.vacations.vacation_name}</h2>
+      <h3>{props.vacations.vacation_descrition}</h3>
       <button className="btn">Edit</button>
       <button className="btn" onClick={handleRemove}>
         Delete

@@ -52,22 +52,22 @@ const AddVacation = props => {
   return (
     <div>
       <h1>Add Vacation</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form className ="form" onSubmit={handleSubmit}>
+        <input className ='input'
           name="vacation_name"
           type="text"
           value={vacation.vacation_name}
           onChange={handleChanges}
           required
         />
-        <input
+        <input className ='input'
           name="vacation_description"
           type="textarea"
           value={vacation.vacation_description}
           onChange={handleChanges}
           required
         />
-        <button>Submit</button>
+        <button className = "button">Submit</button>
       </form>
     </div>
   );

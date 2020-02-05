@@ -27,9 +27,9 @@ const Dashboard = () => {
   return (
     <div>
       {/* <Link to = "/login">Log In</Link>  */}
-      <h1>Dashboard</h1>
-      <h1>Vacations:</h1>
-      <div>{!vacations ? <div>Add New Vacations!</div> : <VacationList />}</div>
+      {/* <h1>Dashboard</h1>
+      <h1>Vacations:</h1> */}
+      <div className ="dash">{!vacations ? <div>Add New Vacations!</div> : <VacationList />}</div>
     </div>
   );
 };
