@@ -35,10 +35,10 @@ const AddVacation = props => {
   };
 
   return (
-    <div>
-      <h1>Add Vacation</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+    <div className ="addVacationCard"> 
+      <h2>Add Vacation</h2>
+      <form className ="form" onSubmit={handleSubmit}>
+        <input className ='input'
           name="vacation_name"
           placeholder="Vacation Name"
           type="text"
@@ -46,7 +46,7 @@ const AddVacation = props => {
           onChange={handleChanges}
           required
         />
-        <input
+        <input className ='input'
           name="vacation_description"
           placeholder="Description"
           type="textarea"
@@ -54,10 +54,9 @@ const AddVacation = props => {
           onChange={handleChanges}
           required
         />
-        <button>Submit</button>
+        <button className = "button">Submit</button>
       </form>
     </div>
   );
 };
-
 export default AddVacation;

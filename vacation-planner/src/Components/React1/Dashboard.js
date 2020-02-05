@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { VacationList } from "../React2/VacationList";
-
 import { useSelector, useDispatch } from "react-redux";
 
 const Dashboard = (props) => {
@@ -27,9 +26,9 @@ const Dashboard = (props) => {
   return (
     <div>
       {/* <Link to = "/login">Log In</Link>  */}
-      <h1>Dashboard</h1>
-      <h1>Vacations:</h1>
-      <div>{!vacations ? <div>Add New Vacations!</div> : <VacationList {...props} />}</div>
+      {/* <h1>Dashboard</h1>
+      <h1>Vacations:</h1> */}
+      <div className ="dash">{!vacations ? <div>Add New Vacations!</div> : <VacationList {...props} />}</div>
     </div>
   );
 };
