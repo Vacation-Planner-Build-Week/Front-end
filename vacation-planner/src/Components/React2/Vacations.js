@@ -18,7 +18,7 @@ const VacationCard = props => {
     }; 
 
   return (
-    <div>
+    <div className="vacationCard">
       <h1>{props.vacations.vacation_name}</h1>
       <h2>{props.vacations.vacation_descrition}</h2>
       <button className="btn" onClick={handleEdit}>Edit</button>
