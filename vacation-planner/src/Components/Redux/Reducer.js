@@ -45,6 +45,7 @@ export const Reducer = (state = InitState, action) => {
       case "REGISTER_USER":
         console.log("USER_REGISTER", action.payload);
         localStorage.setItem("token", action.payload.token);
+        localStorage.setItem("userid", action.payload.user_id);
         return {
           ...state,
           isLogged: true,

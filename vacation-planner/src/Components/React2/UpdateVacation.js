@@ -1,54 +1,54 @@
 import React, { useState, useEffect } from "react";
+// import Axios from "axios";
 import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const UpdateVacation = props => {
+function UpdateVacation(props) {
 
   const [vacation, setVacation] = useState({
-    vacation_name: "",
-    vacation_description: ""
-  });
 
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
+        id: props.match.params.id,
+        isLogged: false,
+        user: {
+            user_Id: null,
+            user_Name: null
+        },
+        vacations: []
+    })
 
   useEffect(() => {
-    const vacationToEdit = props.vacation.find(
-            e => `${e.id}` === props.match.params.id
-        )
-        console.log(props.vacation, vacationToEdit)
-        if(vacationToEdit) {
-            setVacation(vacationToEdit)
-        }
-    }, [props.vacation, props.match.params.id])
-
-  const handleChanges = e => {
-    let value = e.target.value;
-    setVacation({
-      ...vacation,
-      [e.target.name]: value
-    });
-  };
+    console.log(props.match.params.id)
+    axiosWithAuth()
+    .get(`/vacations/${props.match.params.id}`)
+      .then(res => {
+        console.log("RESPONSE!!!!!", res)
+        setVacation(res.data.vacation);
+      })
+      .catch(err => console.log(err.response));
+  }, []);
 
   const handleSubmit = e => {
-      e.preventDefault();
-      axiosWithAuth()
-        .put(`/vacations/${props.vacation.id}`)
-        .then(response => {
-            console.log(response);
-            dispatch({ type: "EDIT_Vacation", payload: response.data });
-            props.history.push("/dashboard");
-        })
-        .catch(error => {
-            console.log("Data was not returned updateVacation.js", error);
-            props.history.push("/dashboard/");
+    e.preventDefault();
+    console.log("Vacation:", vacation);
+    axiosWithAuth()
+    .put(`vacations/${props.match.params.id}`, vacation)
+      .then(res => {
+        console.log(res)
+        props.history.push(`/dashboard`);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const handleChanges = e => {
+    setVacation({
+            ...vacation,
+            [e.target.name]: e.target.value 
         });
   };
 
   return (
     <div>
-      <h1>Edit Vacation</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <input
           name="vacation_name"
           type="text"
@@ -63,10 +63,9 @@ const UpdateVacation = props => {
           onChange={handleChanges}
           required
         />
-        <button>Submit</button>
+        <button type="submit">Done</button>
       </form>
     </div>
   );
-};
-
+}
 export default UpdateVacation;

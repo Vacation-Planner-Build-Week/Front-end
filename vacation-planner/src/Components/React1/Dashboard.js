@@ -4,7 +4,7 @@ import { VacationList } from "../React2/VacationList";
 
 import { useSelector, useDispatch } from "react-redux";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const vacations = useSelector(state => state.vacations);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,7 +29,7 @@ const Dashboard = () => {
       {/* <Link to = "/login">Log In</Link>  */}
       <h1>Dashboard</h1>
       <h1>Vacations:</h1>
-      <div>{!vacations ? <div>Add New Vacations!</div> : <VacationList />}</div>
+      <div>{!vacations ? <div>Add New Vacations!</div> : <VacationList {...props} />}</div>
     </div>
   );
 };

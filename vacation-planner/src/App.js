@@ -29,7 +29,7 @@ function App() {
       <nav className="nav">
         <div className="nav-links">
           {!localStorage.getItem("token") && <Link to="/">Sign In</Link>}
-          {!localStorage.getItem("token") && <Link to="/signup/">Sign Up</Link>}
+          {!localStorage.getItem("token") && <Link to="/signup">Sign Up</Link>}
           {localStorage.getItem("token") && (
             <Link to="/dashboard/">Dashboard</Link>
           )}
