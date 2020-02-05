@@ -3,16 +3,17 @@
 import React, { useEffect } from "react";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 
 
 // Components
 import LogIn from "./Components/React1/LogIn";
-// import Register from "./Components/React1/Register";
+import Register from "./Components/React1/Register";
 import PrivateRoute from "./Components/Utilities/PrivateRoute";
 import AddVacation from "./Components/React2/AddVacation";
 import Dashboard from "./Components/React1/Dashboard";
-import { useDispatch, useSelector } from "react-redux";
+import UpdateWorkout from "./Components/React2/UpdateVacation";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ function App() {
     dispatch({ type: "LOGOUT_USER" });
   };
   
-      <Route path = '/Comments'>
-        <CommentForm />
-      </Route>
+      // <Route path = '/Comments'>
+      //   <CommentForm />
+      // </Route>
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
@@ -47,10 +48,15 @@ function App() {
       </nav>
       <Switch>
         <Route exact path="/" render={props => <LogIn {...props} />} />
+        <Route path="/signup" render={props => <Register {...props} />} />
         <Route
           path="/addvacation/"
           component={props => <AddVacation {...props} />}
         />
+        {/* <Route
+          path="/updatevacation"
+          component={props => <UpdateVacation {...props} />}
+        /> */}
         <PrivateRoute
           path="/dashboard/"
           component={props => <Dashboard {...props} />}

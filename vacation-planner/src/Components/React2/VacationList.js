@@ -3,7 +3,7 @@ import VacationCard from '../React2/Vacations';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-    console.log("State",state);
+    console.log("State", state);
         return {
             vacation: state.vacation
         }

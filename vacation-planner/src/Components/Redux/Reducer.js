@@ -24,7 +24,19 @@ export const Reducer = (state = InitState, action) => {
           user_Id: action.payload.user_id,
           user_Name: action.payload.user_name
         }
-      };
+      }
+
+      case "REGISTER_USER":
+        console.log("USER_REGISTER", action.payload);
+        localStorage.setItem("token", action.payload.token);
+        return {
+          ...state,
+          isLogged: true,
+          user: {
+            user_Id: action.payload.user_id,
+            user_Name: action.payload.user_name
+          }
+        }
 
     case "ADD_VACATION":
       return {

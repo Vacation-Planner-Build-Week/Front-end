@@ -1,6 +1,6 @@
 import React from "react";
-
 import { useSelector } from "react-redux";
+import VacationList from ""
 
 const Dashboard = () => {
   const vacations = useSelector(state => state.vacations);
@@ -21,14 +21,14 @@ const Dashboard = () => {
   );
 };
 
-    return(
+    // return(
 
-        <div className ="navlink">
-            <Link to = "/">Dashboard</Link> 
-           <Link to = "/login">Login</Link> 
-           <Link to ="/comments">Comments</Link>
-        </div>
-    )
+    //     <div className ="navlink">
+    //         <Link to = "/">Dashboard</Link> 
+    //        <Link to = "/login">Login</Link> 
+    //        <Link to ="/comments">Comments</Link>
+    //     </div>
+    // )
 
 
 export default Dashboard;

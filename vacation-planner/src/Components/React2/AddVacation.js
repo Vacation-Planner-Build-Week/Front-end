@@ -3,10 +3,12 @@ import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { useDispatch, useSelector } from "react-redux";
 
 const AddVacation = props => {
+
   const [vacation, setVacation] = useState({
     vacation_name: "",
     vacation_description: ""
   });
+
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
 
@@ -21,17 +23,15 @@ const AddVacation = props => {
   const handleSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post(`/users/${user.user_Id}/vacations`, vacation)
+      .post(`/vacations`, vacation)
       .then(response => {
         console.log(response);
         dispatch({ type: "ADD_Vacation", payload: vacation });
         props.history.push("/dashboard/");
-        //------------------//
         axiosWithAuth()
           .get(`users/${user.user_Id}/vacations`)
           .then(response => {
-            console.log(response);
-            props.setVacation(response.data);
+            console.log(response)
           })
           .catch(error => console.log(error));
       })
@@ -39,13 +39,6 @@ const AddVacation = props => {
         console.log("Data was not returned addVacation.js", error);
         props.history.push("/dashboard/");
       });
-    // props.setUserid(props.userid);
-
-    // setVacation({
-    //   ...vacation,
-    //   vacation_name: "",
-    //   vacation_description: ""
-    // });
   };
 
   return (
