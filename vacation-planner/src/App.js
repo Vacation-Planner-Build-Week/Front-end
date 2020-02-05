@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
 import "./App.css";
+import CommentForm from "./Components/React1/CommentForm";
 
 
 // Components
@@ -22,9 +23,7 @@ function App() {
     dispatch({ type: "LOGOUT_USER" });
   };
   
-      <Route path = '/Comments'>
-        <CommentForm />
-      </Route>
+      
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
@@ -51,6 +50,10 @@ function App() {
           path="/addvacation/"
           component={props => <AddVacation {...props} />}
         />
+
+        <Route path = '/Comments'>
+        <CommentForm />
+       </Route>
         <PrivateRoute
           path="/dashboard/"
           component={props => <Dashboard {...props} />}
