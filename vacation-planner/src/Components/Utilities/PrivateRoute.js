@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         if (localStorage.getItem("token")) {
           return <Component {...props} />;
         } else {
-          return <Redirect to="/signin" />;
+          return <Redirect to="/" />;
         }
       }}
     />
@@ -17,4 +17,3 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 export default PrivateRoute;
-
