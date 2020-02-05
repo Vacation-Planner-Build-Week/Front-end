@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import Axios from "axios";
 import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
-import { useSelector } from "react-redux";
 
 function UpdateVacation(props) {
 
@@ -25,7 +24,7 @@ function UpdateVacation(props) {
         setVacation(res.data.vacation);
       })
       .catch(err => console.log(err.response));
-  }, []);
+  }, [props.match.params.id]);
 
   const handleSubmit = e => {
     e.preventDefault();

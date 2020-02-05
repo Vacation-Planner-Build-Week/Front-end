@@ -22,7 +22,7 @@ const Dashboard = (props) => {
     } else {
       dispatch({ type: "USER_IS_LOGGED", pa: false });
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

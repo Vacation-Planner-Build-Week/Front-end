@@ -1,9 +1,7 @@
 import React from "react";
 import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
-import { Redirect } from "react-router-dom";
 
 const VacationCard = props => {
-  console.log("Props", props);
 
   const handleRemove = () => {
     axiosWithAuth()
@@ -18,11 +16,6 @@ const VacationCard = props => {
         console.log("this is props vacations", props.vacations)
         props.history.push(`/updatevacation/${props.vacations.vacation_id}`)
     }; 
-  
-
-  const handleClick = name => {
-    alert(`you clicked on ${name}`);
-  };
 
   return (
     <div>
@@ -34,6 +27,6 @@ const VacationCard = props => {
       </button>
     </div>
   );
-};
+}
 
 export default VacationCard;

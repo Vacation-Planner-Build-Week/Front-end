@@ -8,7 +8,7 @@ export const VacationList = (props) => {
     <div>
       {vacations.map((ele, index) => (
         <div>
-          <VacationCard {...props} key={index} vacations={ele} />
+          <VacationCard {...props} key={ele.vacation_id} vacations={ele} />
         </div>
       ))}
     </div>

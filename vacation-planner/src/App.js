@@ -1,6 +1,6 @@
 // Dependencies
-import React, { useEffect } from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import React from "react";
+import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 // Components
 import LogIn from "./Components/React1/LogIn";
@@ -10,12 +10,10 @@ import AddVacation from "./Components/React2/AddVacation";
 import UpdateVacation from "./Components/React2/UpdateVacation";
 import Dashboard from "./Components/React1/Dashboard";
 import CommentForm from "./Components/React1/CommentForm";
-import { useDispatch, useSelector } from "react-redux";
-import { axiosWithAuth } from "./Components/Utilities/AxiosWithAuth";
+import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const logged = useSelector(state => state.isLogged);
 
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });
