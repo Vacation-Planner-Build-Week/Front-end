@@ -11,7 +11,7 @@
 
 .button{
   margin:6%;
-  width:60%;
+  width:50%;
   margin-left: 27%;
   padding: 2%;
   background: #C4C4C4;
@@ -22,7 +22,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
   margin: 0 auto;
 }
 /* .button {
@@ -60,17 +60,18 @@
 
 .nav-links a {
   text-decoration: none;  
-  color: white;  
+  color: white;
+  
 }
 
 .nav{  
   margin-bottom: 2%;
   background: #D74E09;
-  padding:2%;
+  padding:1%;
   font-family: Source Sans Pro;
   font-style: normal;
   color:white;
- 
+ font-size: 1rem;  
 }
 
 .dash{
@@ -94,11 +95,11 @@ background-image: linear-gradient(rgba(43, 42, 42, 0.2), rgba(43, 42, 32, 0.2)),
 
 .vacationCard{ 
   border: #00394d 2px solid; 
-  width: 100px;
+  /* width: 100px; */
   min-width:120%;
-  height: 25vh;
+  height: 30vh;
   margin: 10%;
-  padding: 2% 3% 0 2%;
+  padding: 2% 1% 0 1%;
   background:#e6e6e6;
   border-radius: 8px;
 }
@@ -112,6 +113,14 @@ padding: 2% 3% 3% 2%;
 /* width:100px; */
 border: #00394d 1px solid; 
 border-radius: 8px;
+}
+.editVacation{
+width: 35%;
+border: #00394d 1px solid; 
+margin: 0 auto;
+padding: 2% 3% 3% 2%;
+border-radius: 8px;
+
 }
 
 h1{

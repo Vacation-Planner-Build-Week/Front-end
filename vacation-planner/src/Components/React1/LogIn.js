@@ -31,21 +31,21 @@ const LogIn = props => {
   };
 
   return (
-    <div>
-      <h1>Sign In</h1>
+    <div class = "editVacation">
+      <h2>Sign In</h2>
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="login">Username</label>
+        <label htmlFor="login"></label>
         <input
           class="input"
           id="username"
           type="text"
           name="user_name"
           onChange={handleChanges}
-          placeholder="userName"
+          placeholder="username"
           value={user.user_name}
           required
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
           class="input"
           id="password"
