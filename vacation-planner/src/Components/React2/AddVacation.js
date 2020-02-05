@@ -3,10 +3,12 @@ import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { useDispatch } from "react-redux";
 
 const AddVacation = props => {
+
   const [vacation, setVacation] = useState({
     vacation_name: "",
     vacation_description: ""
   });
+
   const dispatch = useDispatch();
 
   const handleChanges = e => {

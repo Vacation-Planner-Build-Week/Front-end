@@ -1,60 +1,64 @@
 import React, { useState } from "react";
+import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
+import { useDispatch } from "react-redux";
 
-const Register = () => {
-  //set up the initial state
+const Register = props => {
+  
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
-    login: "",
-    password: ""
+    user_name: "",
+    user_password: ""
   });
 
-  //onChange handler
   const handleChanges = e => {
-    setUser({ [e.target.name]: e.target.value });
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
   };
 
-  // submitForm
-  const submitForm = e => {
+  const handleSubmit = e => {
+    console.log("Submitting", user);
     e.preventDefault();
-    setUser({ login: "", password: "", user_email: "" });
+    axiosWithAuth()
+      .post("https://vacation-planner-2020.herokuapp.com/api/auth/register", user)
+      .then(response => {
+        console.log("Success", response);
+        dispatch({ type: "REGISTER_USER", payload: response.data });
+        props.history.push("/dashboard");
+      })
+      .catch(error => console.log("ERROR", error.response));
   };
 
   return (
     <div>
-      <form className="form" onSubmit={submitForm}>
-        <label htmlFor="login">LogIn</label>
+      <h1>Sign Up</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor="login">Username</label>
         <input
           class="input"
-          id="login"
+          id="username"
           type="text"
-          name="login"
+          name="user_name"
           onChange={handleChanges}
           placeholder="userName"
           value={user.user_name}
+          required
         />
-
-        <label htmlFor="email">Email</label>
-        <input
-          class="input"
-          id="email"
-          type="email"
-          name="email"
-          onChange={handleChanges}
-          placeholder="email@prodiver.com"
-          value={user.user_email}
-        />
-
         <label htmlFor="password">Password</label>
         <input
           class="input"
           id="password"
           type="password"
-          name="password"
+          name="user_password"
           onChange={handleChanges}
           placeholder="password"
           value={user.user_password}
+          required
         />
-
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
