@@ -40,7 +40,20 @@ export const Reducer = (state = InitState, action) => {
           user_Id: action.payload.user_id,
           user_Name: action.payload.user_name
         }
-      };
+      }
+
+      case "REGISTER_USER":
+        console.log("USER_REGISTER", action.payload);
+        localStorage.setItem("token", action.payload.token);
+        localStorage.setItem("userid", action.payload.user_id);
+        return {
+          ...state,
+          isLogged: true,
+          user: {
+            user_Id: action.payload.user_id,
+            user_Name: action.payload.user_name
+          }
+        }
 
     case "ADD_Vacation":
       console.log("ADD VACA", action.payload);
@@ -48,6 +61,13 @@ export const Reducer = (state = InitState, action) => {
         ...state,
         vacations: [...state.vacations, action.payload]
       };
+
+    case "EDIT_Vacation":
+      console.log("EDIT VACA", action.payload);
+      return {
+        ...state,
+        vacations: [...state.vacations, action.payload]
+      }
 
     default:
       return state;
