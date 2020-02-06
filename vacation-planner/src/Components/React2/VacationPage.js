@@ -62,18 +62,18 @@ export const VacationPage = props => {
   };
 
   return (
-    <div>
-      <h1>name: {vacation.vacation_name}</h1>
-      <h3>description: {vacation.vacation_description}</h3>
-      <div>
+    <div class ="tripCard">
+      <h1>{vacation.vacation_name}</h1>
+      <h3>Description: {vacation.vacation_description}</h3>
+      <div class ="tripDetails"> 
         <h3 id="clkCom" onClick={() => clickHandle("comments")}>
-          comments
+          Comments
         </h3>
         <h3 id="clkPeep" onClick={() => clickHandle("people")}>
-          people: {}
+          People {}
         </h3>
         <h3 id="clkAct" onClick={() => clickHandle("activities")}>
-          activities:{" "}
+          Activities{" "}
         </h3>
       </div>
       <div id="acts">

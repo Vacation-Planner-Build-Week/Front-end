@@ -65,7 +65,7 @@ export const MessagePage = props => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className ="commentBtn"
           placeholder="Enter Persons name"
           type="text"
           name="receiver_name"
@@ -73,13 +73,13 @@ export const MessagePage = props => {
             setSenderName(e.target.value);
           }}
         />
-        <input
+        <input className ="commentBtn"
           placeholder="Type a message"
           value={message.message}
           name="message"
           onChange={handleChange}
         />
-        <button type="submit">Send</button>
+        <button className = "mediumButton" type="submit">Send</button>
       </form>
       {allUserMsg.map((ele, index) => (
         <AMesssage key={index} item={ele} />

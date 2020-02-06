@@ -19,19 +19,20 @@ const VacationCard = props => {
   };
 
   return (
-    <div>
-      <Link to={`/vacationpage/${props.vacations.vacation_id}`}>
-        <h1>{props.vacations.vacation_name}</h1>
-      </Link>
-      <h2>{props.vacations.vacation_description}</h2>
-      <button className="btn" onClick={handleEdit}>
-        Edit
-      </button>
-      <button className="btn" onClick={handleRemove}>
-        Delete
-      </button>
+    <div className="vacationCardParent">
+      <div className="vacationCard">
+        <Link to={`/vacationpage/${props.vacations.vacation_id}`}>
+          <h2>{props.vacations.vacation_name}</h2>
+        </Link>
+        <h3>{props.vacations.vacation_description}</h3>
+        <button className="btn" onClick={handleEdit}>
+          Edit
+        </button>
+        <button className="btn" onClick={handleRemove}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
-
 export default VacationCard;

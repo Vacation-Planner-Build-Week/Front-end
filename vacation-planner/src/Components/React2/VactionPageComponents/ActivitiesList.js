@@ -94,7 +94,7 @@ export const ActivitiesList = props => {
       {/* add activ form   */}
       {addAct ? (
         <form onSubmit={handleSubmit}>
-          <input
+          <input className ="commentBtn"
             type="text"
             placeholder="Activity name"
             value={actToAdd.activity_description}
@@ -102,7 +102,7 @@ export const ActivitiesList = props => {
             onChange={handleChange}
             required
           />
-          <input
+          <input className ="commentBtn"
             type="time"
             placeholder="Activity Start time"
             value={actToAdd.time_start}
@@ -110,7 +110,7 @@ export const ActivitiesList = props => {
             onChange={handleChange}
             required
           />
-          <input
+          <input className ="commentBtn"
             type="time"
             placeholder="Activity End time"
             value={actToAdd.time_end}
@@ -118,12 +118,12 @@ export const ActivitiesList = props => {
             onChange={handleChange}
             required
           />
-          <button type="submit">add Activity</button>
-          <button onClick={() => setAddAct(!addAct)}>Cancel</button>
+          <button className = "mediumButton" type="submit">add</button>
+          <button className = "largeButton" onClick={() => setAddAct(!addAct)}>cancel</button>
         </form>
       ) : (
         <>
-          <button onClick={clear}>Add activity</button>
+          <button class ="commentBtn" onClick={clear}>Add activity</button>
         </>
       )}
       {/* show the activs or add act */}

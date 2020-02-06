@@ -77,19 +77,19 @@ export const CommentsList = props => {
 
   return (
     <div>
-      <button onClick={() => console.log("LOGIT", comments)}>LogIt</button>
+      <button class ="mediumButton" onClick={() => console.log("LOGIT", comments)}>LogIt</button>
       {isaddingComment ? (
         <>
           <form onSubmit={handleSubmit}>
-            <input
+            <input className = "commentBtn"
               onChange={handleChange}
               type="text"
               name="comment"
               value={commentToAdd.comment}
               required
             />
-            <button type="submit">Send</button>
-            <button
+            <button className = "mediumButton" type="submit">Send</button>
+            <button className ="largeButton"
               onClick={() => {
                 setIsAddingComment(false);
                 setCommentToAdd(initState);
@@ -100,7 +100,7 @@ export const CommentsList = props => {
           </form>
         </>
       ) : (
-        <button
+        <button class ="commentBtn"
           onClick={() => {
             setIsAddingComment(true);
           }}
