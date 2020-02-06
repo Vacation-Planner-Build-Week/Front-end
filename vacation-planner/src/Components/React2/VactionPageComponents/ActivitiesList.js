@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../../Utilities/AxiosWithAuth";
 import { Activities } from "./Activities";
 
+//inital state
+const initstate = {
+  activity_description: "",
+  time_start: "",
+  time_end: "",
+  vacation_id: 0
+};
+
 //main body
 export const ActivitiesList = props => {
   //declareing state
   const [acts, setActs] = useState([]);
   const [addAct, setAddAct] = useState(false);
   const [update, setUpdate] = useState(false);
-  const [actToAdd, setActToAdd] = useState({
-    activity_description: "",
-    time_start: "",
-    time_end: "",
-    vacation_id: props.id
-  });
+  const [actToAdd, setActToAdd] = useState(initstate);
 
   //get activities
   useEffect(() => {
@@ -50,16 +53,24 @@ export const ActivitiesList = props => {
           console.log("ADDED ACT:", res);
           setAddAct(!addAct);
           setUpdate(!update);
+          setActToAdd(initstate);
         })
         .catch(err => console.log(err));
     }
   };
+
+  //handle Editing
   const handleEdit = item => {
     setAddAct(!addAct);
     setActToAdd(item);
     handleDelete(item.activity_id);
   };
 
+  //small clear function
+  const clear = () => {
+    setAddAct(!addAct);
+    setActToAdd(initstate);
+  };
   return (
     <div>
       {/* add activ form   */}
@@ -91,17 +102,16 @@ export const ActivitiesList = props => {
         </form>
       ) : (
         <>
-          <button onClick={() => setAddAct(!addAct)}>Add activity</button>
-          <button>remove Activity</button>
+          <button onClick={clear}>Add activity</button>
         </>
       )}
       {/* show the activs or add act */}
       {!acts ? (
         <h1>Add activities</h1>
       ) : (
-        acts.map(ele => (
+        acts.map((ele, index) => (
           <Activities
-            key={acts.activity_id}
+            key={index}
             edit={handleEdit}
             delete={handleDelete}
             act={ele}
