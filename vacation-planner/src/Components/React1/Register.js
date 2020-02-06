@@ -3,7 +3,6 @@ import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { useDispatch } from "react-redux";
 
 const Register = props => {
-  
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     user_name: "",
@@ -21,7 +20,10 @@ const Register = props => {
     console.log("Submitting", user);
     e.preventDefault();
     axiosWithAuth()
-      .post("https://vacation-planner-2020.herokuapp.com/api/auth/register", user)
+      .post(
+        "https://vacation-planner-2020.herokuapp.com/api/auth/register",
+        user
+      )
       .then(response => {
         console.log("Success", response);
         dispatch({ type: "REGISTER_USER", payload: response.data });
@@ -36,7 +38,7 @@ const Register = props => {
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="login"></label>
         <input
-          class="input"
+          className="input"
           id="username"
           type="text"
           name="user_name"
@@ -47,7 +49,7 @@ const Register = props => {
         />
         <label htmlFor="password"></label>
         <input
-          class="input"
+          className="input"
           id="password"
           type="password"
           name="user_password"
