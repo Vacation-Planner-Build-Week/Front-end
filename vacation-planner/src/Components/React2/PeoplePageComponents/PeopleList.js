@@ -75,7 +75,7 @@ export const PeopleList = props => {
           <input
             className="commentBtn"
             onChange={handleChange}
-            placeholder="Add more people"
+            placeholder="Search for useer to add"
             value={searchFor.name}
             name="name"
           />
