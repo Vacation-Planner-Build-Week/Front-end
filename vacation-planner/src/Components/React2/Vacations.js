@@ -13,9 +13,6 @@ const VacationCard = props => {
       .catch(err => console.log(err));
   };
 
-  const update = () => {
-    props.update(true);
-  };
   const handleEdit = () => {
     console.log("this is props vacations", props.vacations);
     props.history.push(`/updatevacation/${props.vacations.vacation_id}`);

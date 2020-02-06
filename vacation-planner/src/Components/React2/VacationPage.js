@@ -4,7 +4,6 @@ import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { ActivitiesList } from "./VactionPageComponents/ActivitiesList";
 
 export const VacationPage = props => {
-  const [name, setName] = useState("");
   const [vacation, setVacation] = useState({
     vacation_id: props.match.params.id,
     vacation_name: "",
@@ -20,7 +19,7 @@ export const VacationPage = props => {
         setVacation(res.data.vacation);
       })
       .catch(err => console.log(err.response));
-  }, [name]);
+  }, []);
 
   const clickHandle = name => {
     var act = document.getElementById("acts");

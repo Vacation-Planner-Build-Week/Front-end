@@ -7,6 +7,7 @@ export const ActivitiesList = props => {
   //declareing state
   const [acts, setActs] = useState([]);
   const [addAct, setAddAct] = useState(false);
+  const [update, setUpdate] = useState(false);
   const [actToAdd, setActToAdd] = useState({
     activity_description: "",
     time_start: "",
@@ -23,13 +24,22 @@ export const ActivitiesList = props => {
         setActs([...res.data]);
       })
       .catch(err => console.log(err));
-  }, [addAct]);
+  }, [update]);
 
   //handle changes in add form
   const handleChange = e => {
     setActToAdd({ ...actToAdd, [e.target.name]: e.target.value });
   };
-
+  //handle Deleteing
+  const handleDelete = id => {
+    axiosWithAuth()
+      .delete(`activities/${id}`)
+      .then(res => {
+        console.log("ADDED ACT:", res);
+        setUpdate(!update);
+      })
+      .catch(err => console.log(err));
+  };
   //handle submitting of form
   const handleSubmit = e => {
     e.preventDefault();
@@ -39,18 +49,20 @@ export const ActivitiesList = props => {
         .then(res => {
           console.log("ADDED ACT:", res);
           setAddAct(!addAct);
+          setUpdate(!update);
         })
         .catch(err => console.log(err));
     }
   };
+  const handleEdit = item => {
+    setAddAct(!addAct);
+    setActToAdd(item);
+    handleDelete(item.activity_id);
+  };
 
   return (
     <div>
-      {!acts ? (
-        <h1>Add activities</h1>
-      ) : (
-        acts.map(ele => <Activities act={ele} />)
-      )}
+      {/* add activ form   */}
       {addAct ? (
         <form onSubmit={handleSubmit}>
           <input
@@ -75,12 +87,26 @@ export const ActivitiesList = props => {
             onChange={handleChange}
           />
           <button type="submit">add Activity</button>
+          <button onClick={() => setAddAct(!addAct)}>Cancel</button>
         </form>
       ) : (
         <>
           <button onClick={() => setAddAct(!addAct)}>Add activity</button>
           <button>remove Activity</button>
         </>
+      )}
+      {/* show the activs or add act */}
+      {!acts ? (
+        <h1>Add activities</h1>
+      ) : (
+        acts.map(ele => (
+          <Activities
+            key={acts.activity_id}
+            edit={handleEdit}
+            delete={handleDelete}
+            act={ele}
+          />
+        ))
       )}
     </div>
   );
