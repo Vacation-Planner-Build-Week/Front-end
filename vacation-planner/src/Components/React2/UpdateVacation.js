@@ -46,23 +46,24 @@ function UpdateVacation(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="form">
-        <input
+    <div className = "editVacation"> 
+    <h2>Edit Vacation</h2>
+      <form className = "form" onSubmit={handleSubmit} className="form">
+        <input className = "input"
           name="vacation_name"
           type="text"
           value={vacation.vacation_name}
           onChange={handleChanges}
           required
         />
-        <input
+        <input className = " input"
           name="vacation_description"
           type="textarea"
           value={vacation.vacation_description}
           onChange={handleChanges}
           required
         />
-        <button type="submit">Done</button>
+        <button className = "button" type="submit">Done</button>
       </form>
     </div>
   );

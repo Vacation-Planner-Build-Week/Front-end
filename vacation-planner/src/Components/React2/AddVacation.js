@@ -42,6 +42,7 @@ const AddVacation = props => {
           name="vacation_name"
           placeholder="Vacation Name"
           type="text"
+          placeholder ="Destination"
           value={vacation.vacation_name}
           onChange={handleChanges}
           required
@@ -50,6 +51,7 @@ const AddVacation = props => {
           name="vacation_description"
           placeholder="Description"
           type="textarea"
+          placeholder ="Details"
           value={vacation.vacation_description}
           onChange={handleChanges}
           required
