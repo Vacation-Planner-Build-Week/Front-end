@@ -40,6 +40,7 @@ const AddVacation = props => {
       <form className ="form" onSubmit={handleSubmit}>
         <input className ='input'
           name="vacation_name"
+          placeholder="Vacation Name"
           type="text"
           placeholder ="Destination"
           value={vacation.vacation_name}
@@ -48,6 +49,7 @@ const AddVacation = props => {
         />
         <input className ='input'
           name="vacation_description"
+          placeholder="Description"
           type="textarea"
           placeholder ="Details"
           value={vacation.vacation_description}

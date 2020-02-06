@@ -1,22 +1,30 @@
 .App {
   text-align: center;
 }
-.btn {  
-  margin: 3%;
-  padding:3%;
-  border-radius: 6px;
-  background: #b3cce6;
-  font-size: 0.7rem;  
+
+.hide {
+  display: none;
+}
+.selected {
+  color: #d74e09;
+  font-size: x-large;
 }
 
-.button{
-  margin:6%;
-  width:50%;
+.btn {
+  margin: 3%;
+  padding: 3%;
+  border-radius: 6px;
+  background: #b3cce6;
+  font-size: 0.7rem;
+}
+
+.button {
+  margin: 6%;
+  width: 60%;
   margin-left: 27%;
   padding: 2%;
-  background: #C4C4C4;
+  background: #c4c4c4;
   border-radius: 5px;
- 
 }
 
 .form {
@@ -25,14 +33,6 @@
   width: 40%;
   margin: 0 auto;
 }
-/* .button {
-  margin: 6%;
-  width: 50%;
-  margin-left: 27%;
-  padding: 2%;
-  background: #c4c4c4;
-  border-radius: 5px;
-} */
 
 .input {
   padding: 2%;
@@ -55,85 +55,113 @@
   display: flex;
   justify-content: space-evenly;
   margin: 0.6%;
- 
 }
 
 .nav-links a {
-  text-decoration: none;  
+  text-decoration: none;
   color: white;
-  
 }
 
-.nav{  
+.nav {
   margin-bottom: 2%;
-  background: #D74E09;
-  padding:1%;
+  background: #d74e09;
+  padding: 2%;
   font-family: Source Sans Pro;
   font-style: normal;
-  color:white;
- font-size: 1rem;  
+  color: white;
 }
 
-.dash{
-background-image: linear-gradient(rgba(43, 42, 42, 0.2), rgba(43, 42, 32, 0.2)), url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F201411-w-worlds-most-visited-tourist-attractions-taj-mahal-agra.jpg%3Fitok%3DheQTAHOF&q=85");
+.dash {
+  background-image: linear-gradient(
+      rgba(43, 42, 42, 0.2),
+      rgba(43, 42, 32, 0.2)
+    ),
+    url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F201411-w-worlds-most-visited-tourist-attractions-taj-mahal-agra.jpg%3Fitok%3DheQTAHOF&q=85");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 80vh;
+  background-position: unset;
+}
+
+.vacationCardParent {
+  background-image: linear-gradient(
+      rgba(43, 42, 42, 0.2),
+      rgba(43, 42, 32, 0.2)
+    ),
+    url("https://www.link2ict.org/newsletter/september2013/images/backgrounds/leaves5.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 30vh;
   background-position: unset;
-
-}
-
-.vacationList{
-  display: flex;
-  justify-content: space-evenly;
-  border: black;
-  width: 100%;  
-  flex-wrap: wrap;
-  flex-direction:row;
-}
-
-.vacationCard{ 
-  border: #00394d 2px solid; 
-  /* width: 100px; */
-  min-width:120%;
-  height: 30vh;
-  margin: 10%;
-  padding: 2% 1% 0 1%;
-  background:#e6e6e6;
+  width: 300px;
   border-radius: 8px;
 }
 
-.addVacationCard{
-
-width: 35%;
-/* margin: 2% 10% 0 10%; */
-margin: 0 auto;
-padding: 2% 3% 3% 2%;
-/* width:100px; */
-border: #00394d 1px solid; 
-border-radius: 8px;
-}
-.editVacation{
-width: 35%;
-border: #00394d 1px solid; 
-margin: 0 auto;
-padding: 2% 3% 3% 2%;
-border-radius: 8px;
-
+.vacationList {
+  display: flex;
+  justify-content: space-evenly;
+  border: black;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-h1{
+.vacationCard {
+  min-width: 200px;
+  /*   min-width:120%; */
+  min-height: 30vh;
+  margin: 10%;
+  padding: 2% 1% 0 1%;
+  background: #e6e6e6;
+  border-radius: 8px;
+}
+
+.addVacationCard {
+  width: 35%;
+  /* margin: 2% 10% 0 10%; */
+  margin: 0 auto;
+  padding: 2% 3% 3% 2%;
+  border: #00394d 1px solid;
+  border-radius: 8px;
+}
+
+/* .vacationCard {
+  border: #00394d 2px solid;
+  width: 100px;
+  min-width: 120%;
+  height: 25vh;
+  margin: 10%;
+  padding: 2% 3% 0 2%;
+  background: #e6e6e6;
+  border-radius: 8px;
+} */
+
+.addVacationCard {
+  width: 35%;
+  /* margin: 2% 10% 0 10%; */
+  margin: 0 auto;
+  padding: 2% 3% 3% 2%;
+  /* width:100px; */
+  border: #00394d 1px solid;
+  border-radius: 8px;
+}
+
+.editVacation {
+  width: 35%;
+  border: #00394d 1px solid;
+  margin: 0 auto;
+  padding: 2% 3% 3% 2%;
+  border-radius: 8px;
+}
+
+h1 {
   color: #002533;
   font-size: 2.3rem;
 }
 
-h2{
+h2 {
   color: #004b66;
   font-size: 1.5rem;
 }
-
-
-
-
-
