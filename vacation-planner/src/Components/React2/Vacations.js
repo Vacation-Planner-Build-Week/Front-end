@@ -19,7 +19,11 @@ const VacationCard = props => {
   };
 
   return (
-    <div>
+//     <div className ="vacationCardParent">
+//     <div className ="vacationCard"> 
+//       <h2>{props.vacations.vacation_name}</h2>
+//       <p>{props.vacations.vacation_description}</p>
+//     <div>
       <Link to={`/vacationpage/${props.vacations.vacation_id}`}>
         <h1>{props.vacations.vacation_name}</h1>
       </Link>
@@ -30,7 +34,7 @@ const VacationCard = props => {
       <button className="btn" onClick={handleRemove}>
         Delete
       </button>
-    </div>
+    </div></div>
   );
 };
 export default VacationCard;
