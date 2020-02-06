@@ -22,6 +22,7 @@ export const MessagePage = props => {
       .get(`users/${localStorage.getItem("userid")}/messages`)
       .then(res => {
         setAllUserMsg(res.data);
+        console.log("ALL_USER_MSG", res.data);
       })
       .catch(err => console.log(err));
   }, [update]);
@@ -38,11 +39,11 @@ export const MessagePage = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log("SENDER", senderName);
-    const person = allUsers.filter(ele => ele.user_name === senderName);
+    const person = allUsers.find(ele => ele.user_name === senderName);
     console.log("ALLPEEPS:", allUsers);
-    console.log("PERSON:", person[0].user_id);
-    setMessage({ ...message, receiver_id: person[0].user_id });
-    const newMsg = { ...message, receiver_id: person[0].user_id };
+    console.log("PERSON:", person.user_id);
+    setMessage({ ...message, receiver_id: person.user_id });
+    const newMsg = { ...message, receiver_id: person.user_id };
 
     if (person) {
       console.log("POST msg:", message);
@@ -65,7 +66,8 @@ export const MessagePage = props => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input className ="commentBtn"
+        <input
+          className="commentBtn"
           placeholder="Enter Persons name"
           type="text"
           name="receiver_name"
@@ -73,16 +75,19 @@ export const MessagePage = props => {
             setSenderName(e.target.value);
           }}
         />
-        <input className ="commentBtn"
+        <input
+          className="commentBtn"
           placeholder="Type a message"
           value={message.message}
           name="message"
           onChange={handleChange}
         />
-        <button className = "mediumButton" type="submit">Send</button>
+        <button className="mediumButton" type="submit">
+          Send
+        </button>
       </form>
       {allUserMsg.map((ele, index) => (
-        <AMesssage key={index} item={ele} />
+        <AMesssage allPeeps={allUsers} key={index} item={ele} />
       ))}
     </div>
   );
