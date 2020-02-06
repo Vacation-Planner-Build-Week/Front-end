@@ -33,19 +33,21 @@ const Register = props => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
+    <div class = "editVacation">
+      <h2>Sign Up</h2>
       <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor="login"></label>
         <input
           className="input"
           id="username"
           type="text"
           name="user_name"
           onChange={handleChanges}
-          placeholder="userName"
+          placeholder="username"
           value={user.user_name}
           required
         />
+        <label htmlFor="password"></label>
         <input
           className="input"
           id="password"

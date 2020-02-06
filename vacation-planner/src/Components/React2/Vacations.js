@@ -12,7 +12,7 @@ const VacationCard = props => {
       })
       .catch(err => console.log(err));
   };
-
+  
   const handleEdit = () => {
     console.log("this is props vacations", props.vacations);
     props.history.push(`/updatevacation/${props.vacations.vacation_id}`);
@@ -33,5 +33,4 @@ const VacationCard = props => {
     </div>
   );
 };
-
 export default VacationCard;

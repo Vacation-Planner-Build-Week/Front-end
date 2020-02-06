@@ -30,7 +30,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
   margin: 0 auto;
 }
 /* .button {
@@ -101,6 +101,7 @@
   flex-direction: row;
 }
 
+
 .vacationCard {
   border: #00394d 2px solid;
   width: 100px;
@@ -120,6 +121,14 @@
   /* width:100px; */
   border: #00394d 1px solid;
   border-radius: 8px;
+}
+.editVacation{
+width: 35%;
+border: #00394d 1px solid; 
+margin: 0 auto;
+padding: 2% 3% 3% 2%;
+border-radius: 8px;
+
 }
 
 h1 {
