@@ -28,12 +28,13 @@ const Register = props => {
         console.log("Success", response);
         dispatch({ type: "REGISTER_USER", payload: response.data });
         props.history.push("/dashboard");
+        props.update();
       })
       .catch(error => console.log("ERROR", error.response));
   };
 
   return (
-    <div class = "editVacation">
+    <div class="editVacation">
       <h2>Sign Up</h2>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="login"></label>

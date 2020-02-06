@@ -54,7 +54,10 @@ function App() {
           path="/"
           render={props => <LogIn update={doUpdate} {...props} />}
         />
-        <Route path="/signup" render={props => <Register {...props} />} />
+        <Route
+          path="/signup"
+          render={props => <Register update={doUpdate} {...props} />}
+        />
         <Route
           path="/addvacation"
           component={props => <AddVacation {...props} />}
