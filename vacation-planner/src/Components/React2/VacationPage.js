@@ -11,7 +11,6 @@ export const VacationPage = props => {
   });
 
   useEffect(() => {
-    console.log(props.match.params.id);
     axiosWithAuth()
       .get(`/vacations/${props.match.params.id}`)
       .then(res => {
@@ -19,7 +18,7 @@ export const VacationPage = props => {
         setVacation(res.data.vacation);
       })
       .catch(err => console.log(err.response));
-  }, []);
+  }, [props.match.params.id]);
 
   const clickHandle = name => {
     var act = document.getElementById("acts");

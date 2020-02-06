@@ -11,10 +11,11 @@ import UpdateVacation from "./Components/React2/UpdateVacation";
 import Dashboard from "./Components/React1/Dashboard";
 import CommentForm from "./Components/React1/CommentForm";
 import { VacationPage } from "./Components/React2/VacationPage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
+  const name = useSelector(state => state.user.user_name);
 
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
+      {name && <h3>Welcome {name}</h3>}
       <nav className="nav">
         <div className="nav-links">
           {!localStorage.getItem("token") && <Link to="/">Sign In</Link>}

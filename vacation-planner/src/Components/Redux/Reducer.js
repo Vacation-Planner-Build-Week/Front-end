@@ -12,7 +12,7 @@ export const Reducer = (state = InitState, action) => {
     case "LOGOUT_USER":
       localStorage.removeItem("token");
       localStorage.removeItem("userid");
-      return state;
+      return InitState;
     case "GET_VACA":
       const newarr = action.payload.map(ele => ele);
       console.log("GET_VACA_ARR", newarr);
@@ -40,20 +40,20 @@ export const Reducer = (state = InitState, action) => {
           user_Id: action.payload.user_id,
           user_Name: action.payload.user_name
         }
-      }
+      };
 
-      case "REGISTER_USER":
-        console.log("USER_REGISTER", action.payload);
-        localStorage.setItem("token", action.payload.token);
-        localStorage.setItem("userid", action.payload.user_id);
-        return {
-          ...state,
-          isLogged: true,
-          user: {
-            user_Id: action.payload.user_id,
-            user_Name: action.payload.user_name
-          }
+    case "REGISTER_USER":
+      console.log("USER_REGISTER", action.payload);
+      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("userid", action.payload.user_id);
+      return {
+        ...state,
+        isLogged: true,
+        user: {
+          user_Id: action.payload.user_id,
+          user_Name: action.payload.user_name
         }
+      };
 
     case "ADD_Vacation":
       console.log("ADD VACA", action.payload);
@@ -67,7 +67,7 @@ export const Reducer = (state = InitState, action) => {
       return {
         ...state,
         vacations: [...state.vacations, action.payload]
-      }
+      };
 
     default:
       return state;

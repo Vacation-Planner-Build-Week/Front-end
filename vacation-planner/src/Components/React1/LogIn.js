@@ -3,7 +3,6 @@ import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 import { useDispatch } from "react-redux";
 
 const LogIn = props => {
-  
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     user_name: "",
@@ -36,7 +35,7 @@ const LogIn = props => {
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="login">Username</label>
         <input
-          class="input"
+          className="input"
           id="username"
           type="text"
           name="user_name"
@@ -47,7 +46,7 @@ const LogIn = props => {
         />
         <label htmlFor="password">Password</label>
         <input
-          class="input"
+          className="input"
           id="password"
           type="password"
           name="user_password"
