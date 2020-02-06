@@ -10,6 +10,7 @@ import AddVacation from "./Components/React2/AddVacation";
 import UpdateVacation from "./Components/React2/UpdateVacation";
 import Dashboard from "./Components/React1/Dashboard";
 import CommentForm from "./Components/React1/CommentForm";
+import { VacationPage } from "./Components/React2/VacationPage";
 import { useDispatch } from "react-redux";
 
 function App() {
@@ -58,6 +59,10 @@ function App() {
         <PrivateRoute
           path="/dashboard"
           component={props => <Dashboard {...props} />}
+        />
+        <PrivateRoute
+          path="/vacationpage/:id"
+          component={props => <VacationPage {...props} />}
         />
       </Switch>
     </div>
