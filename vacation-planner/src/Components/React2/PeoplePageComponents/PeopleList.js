@@ -73,12 +73,15 @@ export const PeopleList = props => {
       <div>
         <form onSubmit={handleSubmit}>
           <input
+            className="commentBtn"
             onChange={handleChange}
             placeholder="Search for useer to add"
             value={searchFor.name}
             name="name"
           />
-          <button type="submit">Add</button>
+          <button className="logItBtn" type="submit">
+            Add
+          </button>
         </form>
       </div>
       {!peopleList ? (
