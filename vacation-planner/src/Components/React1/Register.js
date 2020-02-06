@@ -36,7 +36,6 @@ const Register = props => {
     <div>
       <h1>Sign Up</h1>
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="login">Username</label>
         <input
           className="input"
           id="username"
@@ -47,7 +46,6 @@ const Register = props => {
           value={user.user_name}
           required
         />
-        <label htmlFor="password">Password</label>
         <input
           className="input"
           id="password"

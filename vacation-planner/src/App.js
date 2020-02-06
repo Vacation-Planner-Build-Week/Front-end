@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 // Components
@@ -15,29 +15,31 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const name = localStorage.getItem("username");
+  const [update, setUpdate] = useState(false);
+  var name = localStorage.getItem("username");
+  var token = localStorage.getItem("token");
 
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });
+    doUpdate();
   };
+  useEffect(() => {}, [update]);
 
   // https://vacation-planner-2020.herokuapp.com/api/users/3
-
+  const doUpdate = () => {
+    setUpdate(!update);
+  };
   return (
     <div className="App">
       <h1>Vacation Planner</h1>
       {name && <h3>Welcome {name}</h3>}
       <nav className="nav">
         <div className="nav-links">
-          {!localStorage.getItem("token") && <Link to="/">Sign In</Link>}
-          {!localStorage.getItem("token") && <Link to="/signup">Sign Up</Link>}
-          {localStorage.getItem("token") && (
-            <Link to="/dashboard/">Dashboard</Link>
-          )}
-          {localStorage.getItem("token") && (
-            <Link to="/addvacation">Add Vacation</Link>
-          )}
-          {localStorage.getItem("token") && (
+          {!token && <Link to="/">Sign In</Link>}
+          {!token && <Link to="/signup">Sign Up</Link>}
+          {token && <Link to="/dashboard/">Dashboard</Link>}
+          {token && <Link to="/addvacation">Add Vacation</Link>}
+          {token && (
             <Link to="/" onClick={signOut}>
               Sign Out
             </Link>
@@ -45,7 +47,11 @@ function App() {
         </div>
       </nav>
       <Switch>
-        <Route exact path="/" render={props => <LogIn {...props} />} />
+        <Route
+          exact
+          path="/"
+          render={props => <LogIn update={doUpdate} {...props} />}
+        />
         <Route path="/signup" render={props => <Register {...props} />} />
         <Route
           path="/addvacation"

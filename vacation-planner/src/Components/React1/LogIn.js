@@ -25,6 +25,7 @@ const LogIn = props => {
         console.log("Success", response);
         dispatch({ type: "LOGIN_USER", payload: response.data });
         props.history.push("/dashboard");
+        props.update();
       })
       .catch(error => console.log("ERROR", error.response));
   };
