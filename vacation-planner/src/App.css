@@ -34,7 +34,6 @@
   margin: 0 auto;
 }
 
-
 .input {
   padding: 2%;
   background: #ffffff;
@@ -85,15 +84,19 @@
   background-position: unset;
 }
 
-.vacationCardParent{
-  background-image: linear-gradient(rgba(43, 42, 42, 0.2), rgba(43, 42, 32, 0.2)), url("https://www.link2ict.org/newsletter/september2013/images/backgrounds/leaves5.jpg");
+.vacationCardParent {
+  background-image: linear-gradient(
+      rgba(43, 42, 42, 0.2),
+      rgba(43, 42, 32, 0.2)
+    ),
+    url("https://www.link2ict.org/newsletter/september2013/images/backgrounds/leaves5.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 30vh;
   background-position: unset;
   width: 300px;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 .vacationList {
@@ -105,23 +108,24 @@
   flex-direction: row;
 }
 
-.vacationCard{ 
+.vacationCard {
   min-width: 200px;
-/*   min-width:120%; */
+  /*   min-width:120%; */
   min-height: 30vh;
-  margin: 10%;  
+  margin: 10%;
   padding: 2% 1% 0 1%;
-  background:#e6e6e6;
+  background: #e6e6e6;
   border-radius: 8px;
 }
 
-.addVacationCard{
-width: 35%;
-/* margin: 2% 10% 0 10%; */
-margin: 0 auto;
-padding: 2% 3% 3% 2%;
-border: #00394d 1px solid; 
-border-radius: 8px;
+.addVacationCard {
+  width: 35%;
+  /* margin: 2% 10% 0 10%; */
+  margin: 0 auto;
+  padding: 2% 3% 3% 2%;
+  border: #00394d 1px solid;
+  border-radius: 8px;
+}
 
 /* .vacationCard {
   border: #00394d 2px solid;
@@ -144,13 +148,12 @@ border-radius: 8px;
   border-radius: 8px;
 }
 
-.editVacation{
-width: 35%;
-border: #00394d 1px solid; 
-margin: 0 auto;
-padding: 2% 3% 3% 2%;
-border-radius: 8px;
-
+.editVacation {
+  width: 35%;
+  border: #00394d 1px solid;
+  margin: 0 auto;
+  padding: 2% 3% 3% 2%;
+  border-radius: 8px;
 }
 
 h1 {
