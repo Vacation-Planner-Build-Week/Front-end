@@ -15,8 +15,8 @@ export const Person = props => {
 
   return (
     <div>
-      <h3>{user.user_name}</h3>
-      <button>X</button>
+      <p>{user.user_name}</p>
+      <button className ="smallButton">X</button>
     </div>
   );
 };
