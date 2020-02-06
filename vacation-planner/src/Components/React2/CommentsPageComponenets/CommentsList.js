@@ -7,6 +7,7 @@ export const CommentsList = props => {
   const [isaddingComment, setIsAddingComment] = useState(false);
   const [comments, setComments] = useState([]);
   const [update, setUpdate] = useState(false);
+  const [isEditing, setIsediting] = useState(false);
   const initState = {
     comment: "",
     vacation_id: props.id,
@@ -26,16 +27,47 @@ export const CommentsList = props => {
       });
   }, [update]);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log("COMMENT_SENT", commentToAdd);
+  const handleDelete = id => {
     axiosWithAuth()
-      .post("/comments", commentToAdd)
+      .delete(`comments/${id}`)
       .then(res => {
-        console.log("COMMENT_ADD_RES", res);
-        setUpdate(true);
+        setUpdate(!update);
       })
       .catch(err => console.log(err));
+  };
+
+  const handleEdit = item => {
+    setIsediting(true);
+    setIsAddingComment(true);
+    setCommentToAdd(item);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (isEditing) {
+      console.log("EDIT_COMMNET", commentToAdd);
+
+      axiosWithAuth()
+        .put(`comments/${commentToAdd.comment_id}`, commentToAdd)
+        .then(res => {
+          setIsediting(false);
+          setIsAddingComment(false);
+          setCommentToAdd(initState);
+          setUpdate(!update);
+        })
+        .catch(err => console.log(err));
+    } else {
+      console.log("COMMENT_SENT", commentToAdd);
+      axiosWithAuth()
+        .post("/comments", commentToAdd)
+        .then(res => {
+          console.log("COMMENT_ADD_RES", res);
+          setCommentToAdd(initState);
+          setIsAddingComment(!isaddingComment);
+          setUpdate(!update);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   const handleChange = e => {
@@ -54,11 +86,13 @@ export const CommentsList = props => {
               type="text"
               name="comment"
               value={commentToAdd.comment}
+              required
             />
             <button type="submit">Send</button>
             <button
               onClick={() => {
                 setIsAddingComment(false);
+                setCommentToAdd(initState);
               }}
             >
               Cancel
@@ -79,7 +113,12 @@ export const CommentsList = props => {
       ) : (
         <div>
           {comments.map((ele, index) => (
-            <Comments key={index} item={ele} />
+            <Comments
+              key={index}
+              edit={handleEdit}
+              delete={handleDelete}
+              item={ele}
+            />
           ))}
         </div>
       )}
