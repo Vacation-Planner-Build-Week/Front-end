@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../Utilities/AxiosWithAuth";
 import { AMesssage } from "./AMesssage";
-import { useSelector } from "react-redux";
 
 export const MessagePage = props => {
   const [allUserMsg, setAllUserMsg] = useState([]);
@@ -11,10 +10,13 @@ export const MessagePage = props => {
 
   const [message, setMessage] = useState({
     message: "",
-    user_id: localStorage.getItem("userid"),
-    receiver_id: 0
+    user_id: Number(localStorage.getItem("userid")),
+    receiver_id: null,
+    sender: true,
+    receiver: false
   });
 
+  console.log("MSG", message);
   useEffect(() => {
     axiosWithAuth()
       .get(`users/${localStorage.getItem("userid")}/messages`)
@@ -36,19 +38,20 @@ export const MessagePage = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log("SENDER", senderName);
-
     const person = allUsers.filter(ele => ele.user_name === senderName);
     console.log("ALLPEEPS:", allUsers);
-
-    console.log("PERSON:", person);
+    console.log("PERSON:", person[0].user_id);
     setMessage({ ...message, receiver_id: person[0].user_id });
-    console.log("MSG", message);
+    const newMsg = { ...message, receiver_id: person[0].user_id };
 
     if (person) {
+      console.log("POST msg:", message);
+
       axiosWithAuth()
-        .post("/messages", message)
+        .post("/messages", newMsg)
         .then(res => {
           console.log("SENT_MESSAGE", res);
+
           setupdate(!update);
         })
         .catch(err => console.log(err));

@@ -9,8 +9,7 @@ export const ActivitiesList = props => {
     activity_description: "",
     time_start: "",
     time_end: "",
-    vacation_id: props.id,
-    activity_id: 0
+    vacation_id: props.id
   };
 
   const [acts, setActs] = useState([]);
