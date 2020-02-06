@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../Utilities/AxiosWithAuth";
 import { Person } from "./Person";
-import { useSelector } from "react-redux";
 
 export const PeopleList = props => {
   const [searchFor, setSearchFor] = useState({ name: "" });
@@ -10,13 +9,11 @@ export const PeopleList = props => {
   const [peopleList, setPeopleList] = useState([]);
 
   useEffect(() => {
-    console.log("ALL USERS:", allUsers);
-
     axiosWithAuth()
       .get(`/vacations/${props.id}/users`)
       .then(res => {
-        console.log("GET_VACA_USERS", res);
-        setPeopleList([...peopleList, ...res.data]);
+        console.log("GET_VACA_USERS", res.data);
+        setPeopleList(res.data);
       })
       .catch(err => console.log(err));
   }, [update]);
@@ -26,7 +23,7 @@ export const PeopleList = props => {
       .get("/users")
       .then(res => {
         // console.log("ALL_USERS", res);
-        setAllUsers([res.data.users]);
+        setAllUsers(res.data.users);
       })
       .catch(err => console.log(err));
   }, []);
@@ -36,18 +33,29 @@ export const PeopleList = props => {
     setSearchFor({ ...searchFor, [e.target.name]: e.target.value });
   };
 
+  const handleDelete = id => {
+    axiosWithAuth()
+      .delete(`/vacations/${props.id}/user/${id}`)
+      .then(res => {
+        console.log(res);
+        setUpdate(!update);
+      })
+      .catch(err => console.log(err));
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     console.log("ALL PEEPS", allUsers);
-    var exists = allUsers.filter(ele => ele.user_name === searchFor.name);
-    var alreadyAdded = peopleList.filter(ele => ele.user_id === exists.user_id);
-    // console.log("EXISTS", exists[0].user_name);
+    var exists = allUsers.find(ele => ele.user_name === searchFor.name);
+    var alreadyAdded = peopleList.some(ele => ele.user_id === exists.user_id);
+    console.log("EXISTS", exists);
+    console.log("Added", alreadyAdded);
 
-    if (exists.length >= 1) {
+    if (exists) {
       if (alreadyAdded) {
         return alert("already added");
       }
-      var toAdd = { user_id: exists[0].user_id, vacation_id: props.id };
+      var toAdd = { user_id: exists.user_id, vacation_id: props.id };
       axiosWithAuth()
         .post(`/vacations/adduser`, toAdd)
         .then(res => {
@@ -76,7 +84,9 @@ export const PeopleList = props => {
       {!peopleList ? (
         <h3>Add some friends</h3>
       ) : (
-        peopleList.map(ele => <Person key={ele.user_id} id={ele.user_id} />)
+        peopleList.map(ele => (
+          <Person key={ele.user_id} delete={handleDelete} item={ele} />
+        ))
       )}
     </div>
   );
