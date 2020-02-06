@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const name = useSelector(state => state.user.user_name);
+  const name = localStorage.getItem("username");
 
   const signOut = () => {
     dispatch({ type: "LOGOUT_USER" });

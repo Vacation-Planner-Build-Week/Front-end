@@ -12,6 +12,7 @@ export const Reducer = (state = InitState, action) => {
     case "LOGOUT_USER":
       localStorage.removeItem("token");
       localStorage.removeItem("userid");
+      localStorage.removeItem("username");
       return InitState;
     case "GET_VACA":
       const newarr = action.payload.map(ele => ele);
@@ -33,6 +34,7 @@ export const Reducer = (state = InitState, action) => {
       console.log("USER_LOGIN", action.payload);
       localStorage.setItem("token", action.payload.token);
       localStorage.setItem("userid", action.payload.user_id);
+      localStorage.setItem("username", action.payload.user_name);
       return {
         ...state,
         isLogged: true,

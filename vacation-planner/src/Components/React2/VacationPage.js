@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../Utilities/AxiosWithAuth";
 //components
 import { ActivitiesList } from "./VactionPageComponents/ActivitiesList";
+import { CommentsList } from "./CommentsPageComponenets/CommentsList";
 
 export const VacationPage = props => {
   const [vacation, setVacation] = useState({
@@ -24,7 +25,6 @@ export const VacationPage = props => {
     var act = document.getElementById("acts");
     var coms = document.getElementById("coms");
     var peeps = document.getElementById("peeps");
-
     switch (name) {
       case "comments":
         coms.classList.remove("hide");
@@ -59,7 +59,7 @@ export const VacationPage = props => {
         <ActivitiesList id={props.match.params.id} />
       </div>
       <div id="coms" className="hide">
-        <h1>Commnets</h1>
+        <CommentsList id={props.match.params.id} />
       </div>
       <div id="peeps" className="hide">
         <h1>People</h1>
