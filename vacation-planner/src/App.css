@@ -5,6 +5,10 @@
 .hide {
   display: none;
 }
+.selected {
+  color: #d74e09;
+  font-size: x-large;
+}
 
 .btn {
   margin: 3%;
