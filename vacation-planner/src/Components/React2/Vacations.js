@@ -22,9 +22,9 @@ const VacationCard = props => {
     <div className="vacationCardParent">
       <div className="vacationCard">
         <Link to={`/vacationpage/${props.vacations.vacation_id}`}>
-          <h1>{props.vacations.vacation_name}</h1>
+          <h2>{props.vacations.vacation_name}</h2>
         </Link>
-        <h2>{props.vacations.vacation_description}</h2>
+        <h3>{props.vacations.vacation_description}</h3>
         <button className="btn" onClick={handleEdit}>
           Edit
         </button>
