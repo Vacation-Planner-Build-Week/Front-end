@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../Utilities/AxiosWithAuth";
 import { Person } from "./Person";
+import { useSelector } from "react-redux";
 
 export const PeopleList = props => {
   const [searchFor, setSearchFor] = useState({ name: "" });
   const [allUsers, setAllUsers] = useState([]);
   const [update, setUpdate] = useState(false);
   const [peopleList, setPeopleList] = useState([]);
-  const input = "";
-  useEffect(() => {
-    axiosWithAuth()
-      .get("/users")
-      .then(res => {
-        // console.log("ALL_USERS", res);
-        setAllUsers(res.data.users);
-      })
-      .catch(err => console.log(err));
-  }, [update]);
 
   useEffect(() => {
+    console.log("ALL USERS:", allUsers);
+
     axiosWithAuth()
       .get(`/vacations/${props.id}/users`)
       .then(res => {
@@ -27,6 +20,16 @@ export const PeopleList = props => {
       })
       .catch(err => console.log(err));
   }, [update]);
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/users")
+      .then(res => {
+        // console.log("ALL_USERS", res);
+        setAllUsers([res.data.users]);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   const handleChange = e => {
     e.preventDefault();
@@ -60,7 +63,6 @@ export const PeopleList = props => {
   return (
     <div>
       <div>
-        <button onClick={() => console.log("LOGIT", peopleList)}>LOGIT</button>
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}

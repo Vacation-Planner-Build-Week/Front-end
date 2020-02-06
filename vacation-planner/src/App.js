@@ -10,8 +10,9 @@ import AddVacation from "./Components/React2/AddVacation";
 import UpdateVacation from "./Components/React2/UpdateVacation";
 import Dashboard from "./Components/React1/Dashboard";
 import CommentForm from "./Components/React1/CommentForm";
+import { MessagePage } from "./Components/React2/MessageingComponet/MessagePage";
 import { VacationPage } from "./Components/React2/VacationPage";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           {!token && <Link to="/signup">Sign Up</Link>}
           {token && <Link to="/dashboard/">Dashboard</Link>}
           {token && <Link to="/addvacation">Add Vacation</Link>}
+          {token && <Link to="/Messages">Messages</Link>}
           {token && (
             <Link to="/" onClick={signOut}>
               Sign Out
@@ -71,6 +73,10 @@ function App() {
         <PrivateRoute
           path="/vacationpage/:id"
           component={props => <VacationPage {...props} />}
+        />
+        <PrivateRoute
+          path="/Messages"
+          component={props => <MessagePage {...props} />}
         />
       </Switch>
     </div>

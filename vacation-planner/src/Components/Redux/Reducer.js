@@ -4,7 +4,8 @@ export const InitState = {
     user_Id: null,
     user_Name: null
   },
-  vacations: [{ vacation_name: "New", vacation_description: "Just basic" }]
+  vacations: [{ vacation_name: "New", vacation_description: "Just basic" }],
+  allUsers: []
 };
 
 export const Reducer = (state = InitState, action) => {
@@ -70,6 +71,8 @@ export const Reducer = (state = InitState, action) => {
         ...state,
         vacations: [...state.vacations, action.payload]
       };
+    case "GET_ALL_USERS":
+      return { ...state, allUsers: action.payload };
 
     default:
       return state;
