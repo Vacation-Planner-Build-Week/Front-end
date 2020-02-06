@@ -14,6 +14,7 @@ const VacationCard = props => {
     props.history.push(`/updatevacation/${props.vacations.vacation_id}`);
   };
   return (
+    <div className ="vacationCardParent">
     <div className ="vacationCard"> 
       <h2>{props.vacations.vacation_name}</h2>
       <p>{props.vacations.vacation_description}</p>
@@ -23,7 +24,7 @@ const VacationCard = props => {
       <button className="btn" onClick={handleRemove}>
         Delete
       </button>
-    </div>
+    </div></div>
   );
 };
 export default VacationCard;
