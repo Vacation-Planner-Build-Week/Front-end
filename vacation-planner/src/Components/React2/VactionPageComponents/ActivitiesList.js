@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../../Utilities/AxiosWithAuth";
 import { Activities } from "./Activities";
 
-//inital state
-const initstate = {
-  activity_description: "",
-  time_start: "",
-  time_end: "",
-  vacation_id: 0
-};
-
 //main body
 export const ActivitiesList = props => {
-  //declareing state
+  //declareing states
+  const initstate = {
+    activity_description: "",
+    time_start: "",
+    time_end: "",
+    vacation_id: props.id,
+    activity_id: 0
+  };
+
   const [acts, setActs] = useState([]);
+  const [editing, setEditing] = useState(false);
   const [addAct, setAddAct] = useState(false);
   const [update, setUpdate] = useState(false);
   const [actToAdd, setActToAdd] = useState(initstate);
@@ -33,6 +34,7 @@ export const ActivitiesList = props => {
   const handleChange = e => {
     setActToAdd({ ...actToAdd, [e.target.name]: e.target.value });
   };
+
   //handle Deleteing
   const handleDelete = id => {
     axiosWithAuth()
@@ -43,19 +45,36 @@ export const ActivitiesList = props => {
       })
       .catch(err => console.log(err));
   };
+
   //handle submitting of form
   const handleSubmit = e => {
     e.preventDefault();
+    console.log("in here", actToAdd);
     if (addAct) {
-      axiosWithAuth()
-        .post(`/activities`, actToAdd)
-        .then(res => {
-          console.log("ADDED ACT:", res);
-          setAddAct(!addAct);
-          setUpdate(!update);
-          setActToAdd(initstate);
-        })
-        .catch(err => console.log(err));
+      if (editing) {
+        //put request for editing
+        axiosWithAuth()
+          .put(`/activities/${actToAdd.activity_id}`, actToAdd)
+          .then(res => {
+            console.log("ADDED ACT:", res);
+            setAddAct(!addAct);
+            setUpdate(!update);
+            setActToAdd(initstate);
+            setEditing(false);
+          })
+          .catch(err => console.log(err));
+      } else {
+        console.log("Actstoadd", actToAdd);
+        axiosWithAuth()
+          .post(`/activities`, actToAdd)
+          .then(res => {
+            console.log("ADDED ACT:", res);
+            setAddAct(!addAct);
+            setUpdate(!update);
+            setActToAdd(initstate);
+          })
+          .catch(err => console.log(err));
+      }
     }
   };
 
@@ -63,7 +82,7 @@ export const ActivitiesList = props => {
   const handleEdit = item => {
     setAddAct(!addAct);
     setActToAdd(item);
-    handleDelete(item.activity_id);
+    setEditing(true);
   };
 
   //small clear function
@@ -82,6 +101,7 @@ export const ActivitiesList = props => {
             value={actToAdd.activity_description}
             name="activity_description"
             onChange={handleChange}
+            required
           />
           <input
             type="time"
@@ -89,6 +109,7 @@ export const ActivitiesList = props => {
             value={actToAdd.time_start}
             name="time_start"
             onChange={handleChange}
+            required
           />
           <input
             type="time"
@@ -96,6 +117,7 @@ export const ActivitiesList = props => {
             value={actToAdd.time_end}
             name="time_end"
             onChange={handleChange}
+            required
           />
           <button type="submit">add Activity</button>
           <button onClick={() => setAddAct(!addAct)}>Cancel</button>
