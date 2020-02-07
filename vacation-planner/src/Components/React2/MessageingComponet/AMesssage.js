@@ -19,16 +19,16 @@ export const AMesssage = props => {
     .catch(err => console.log(err));
   return (
     <div>
-      <h5>
+      <p>
         {`[ ${name} ] : ${props.item.message} `}
-        <button
+        <button className = "smallButton"
           onClick={() => {
             props.delete();
           }}
         >
           X
         </button>
-      </h5>
+      </p>
     </div>
   );
 };

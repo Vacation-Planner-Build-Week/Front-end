@@ -154,7 +154,8 @@ h2 {
    width:60%;
    min-height: 55vh;
    border: black 2px solid;
-   margin: 0 0 4% 20%;   
+   margin: 0 0 4% 20%; 
+   border-radius: 6px;  
  }
  
 
