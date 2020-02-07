@@ -7,6 +7,7 @@ export const PeopleList = props => {
   const [allUsers, setAllUsers] = useState([]);
   const [update, setUpdate] = useState(false);
   const [peopleList, setPeopleList] = useState([]);
+  console.log("PPL_LIST", peopleList);
 
   useEffect(() => {
     axiosWithAuth()
@@ -47,22 +48,24 @@ export const PeopleList = props => {
     e.preventDefault();
     console.log("ALL PEEPS", allUsers);
     var exists = allUsers.find(ele => ele.user_name === searchFor.name);
-    var alreadyAdded = peopleList.some(ele => ele.user_id === exists.user_id);
     console.log("EXISTS", exists);
-    console.log("Added", alreadyAdded);
-
     if (exists) {
+      var alreadyAdded = peopleList.some(ele => ele.user_id === exists.user_id);
+      console.log("Added", alreadyAdded);
       if (alreadyAdded) {
         return alert("already added");
+      } else {
+        var toAdd = { user_id: exists.user_id, vacation_id: props.id };
+
+        axiosWithAuth()
+          .post(`/vacations/adduser`, toAdd)
+          .then(res => {
+            console.log("ADDED_USER?", res);
+            setSearchFor({ name: "" });
+            setUpdate(!update);
+          })
+          .catch(err => console.log(err));
       }
-      var toAdd = { user_id: exists.user_id, vacation_id: props.id };
-      axiosWithAuth()
-        .post(`/vacations/adduser`, toAdd)
-        .then(res => {
-          console.log("ADDED_USER?", res);
-          setUpdate(!update);
-        })
-        .catch(err => console.log(err));
     } else {
       alert("no user found");
     }
