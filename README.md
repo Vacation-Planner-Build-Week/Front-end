@@ -1,6 +1,6 @@
 # Front-end
 
-#About
+**About** <br/><br/>
 This is a vacation planning app where one can keep track of his/her vacation. After creating an account on vacation planner, just add your dream vacation card with all the details that are important. These vacation cards will stay in your account even when your vacation is over so you can look back and mesmerize those moments. But, if you want to delete them( for some reasons), you can do that too.  There are several cool features in this app like you can record the activities that you are planning for that trip, add more people to your vacation and also chat with other fellow app users using internal messaging system.
 
 
