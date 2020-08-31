@@ -1,7 +1,9 @@
 # Front-end
 
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Maintainability](https://api.codeclimate.com/v1/badges/be4c9e543ea59cfc8469/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/community-calendar-fe/maintainability) 
+
 ### Contributors: 
-Ashton Ragan  || Adam Monast || Miankshi Verma || Chance Rutledge || Cam Perry
+Ashton Ragan  || Adam Monast || Minakshi Verma || Chance Rutledge || Cam Perry
 
 **About** <br/>
 This is a vacation planning app where one can keep track of his/her vacation. After creating an account on vacation planner, just add your dream vacation card with all the details that are important. These vacation cards will stay in your account even when your vacation is over so you can look back and mesmerize those moments. But, if you want to delete them( for some reasons), you can do that too.  There are several cool features in this app like you can record the activities that you are planning for that trip, add more people to your vacation and also chat with other fellow app users using internal messaging system.
