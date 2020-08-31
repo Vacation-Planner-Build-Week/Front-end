@@ -1,6 +1,6 @@
 # Front-end
 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Maintainability](https://api.codeclimate.com/v1/badges/be4c9e543ea59cfc8469/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/community-calendar-fe/maintainability) 
+![Forks](https://img.shields.io/github/forks/Vacation-Planner-Build-Week/Front-end)![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Maintainability](https://api.codeclimate.com/v1/badges/00e8f2782b6f83361755/maintainability) ![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fminakshi_12) 
 
 ### Contributors: 
 Ashton Ragan  || Adam Monast || Minakshi Verma || Chance Rutledge || Cam Perry
